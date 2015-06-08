@@ -1,4 +1,4 @@
-﻿package jpaentity;
+package jpaentity;
 
 import java.io.Serializable;
 
@@ -105,6 +105,19 @@ public class Expedition implements Serializable {
 	 * 获得开发资财（螺丝）
 	 */
 	private Integer screw;
+	
+	/**
+	 * 高速建造材
+	 */
+	private Integer flamer;
+	
+	public Integer getFlamer() {
+		return flamer;
+	}
+
+	public void setFlamer(Integer flamer) {
+		this.flamer = flamer;
+	}
 
 	public Integer getId() {
 		return id;
