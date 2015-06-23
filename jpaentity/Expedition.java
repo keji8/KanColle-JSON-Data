@@ -1,4 +1,4 @@
-package jpaentity;
+package entities;
 
 import java.io.Serializable;
 
@@ -17,20 +17,15 @@ public class Expedition implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	/**
-	 * 编号
+	 * 编号，和游戏里的编号是一致的
 	 */
 	@Id
-	private Integer id;
+	private int id;
 	
 	/**
 	 * 名称
 	 */
 	private String name;
-	
-	/**
-	 * 任务描述
-	 */
-	private String description;
 	
 	/**
 	 * 耗时（分钟）
@@ -82,11 +77,6 @@ public class Expedition implements Serializable {
 	private Integer bauxite;
 	
 	/**
-	 * 获得桶
-	 */
-	private Integer bucket;
-	
-	/**
 	 * 获得家具箱小
 	 */
 	private Integer chestSm;
@@ -100,16 +90,21 @@ public class Expedition implements Serializable {
 	 * 获得家具箱大
 	 */
 	private Integer chestLg;
+	/**
+	 * 获得桶
+	 */
+	private Integer bucket;
+	
+	/**
+	 * 高速建造材
+	 */
+	private Integer flamer;
 	
 	/**
 	 * 获得开发资财（螺丝）
 	 */
 	private Integer screw;
 	
-	/**
-	 * 高速建造材
-	 */
-	private Integer flamer;
 	
 	public Integer getFlamer() {
 		return flamer;
@@ -119,11 +114,11 @@ public class Expedition implements Serializable {
 		this.flamer = flamer;
 	}
 
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -141,14 +136,6 @@ public class Expedition implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
 	}
 
 	public Double getFuelConsumption() {
