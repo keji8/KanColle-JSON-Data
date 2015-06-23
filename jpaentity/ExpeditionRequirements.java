@@ -11,7 +11,7 @@ import javax.persistence.Table;
  *	远征必要条件
  */
 @Entity
-@Table(name="kancolle_expedition_requirements")
+@Table(name="kancolle_expedition_req")
 public class ExpeditionRequirements implements Serializable {
 
 	private static final long serialVersionUID = 1L;
