@@ -101,9 +101,9 @@ public class Expedition implements Serializable {
 	private Integer flamer;
 	
 	/**
-	 * 获得开发资财（螺丝）
+	 * 获得开发资财
 	 */
-	private Integer screw;
+	private Integer dev;
 	
 	
 	public Integer getFlamer() {
@@ -234,11 +234,11 @@ public class Expedition implements Serializable {
 		this.chestLg = chestLg;
 	}
 
-	public Integer getScrew() {
-		return screw;
+	public Integer getDev() {
+		return dev;
 	}
 
-	public void setScrew(Integer screw) {
-		this.screw = screw;
+	public void setDev(Integer dev) {
+		this.dev = dev;
 	}
 }
