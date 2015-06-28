@@ -1,6 +1,6 @@
 # KanColle JSON Data #
 
-因为个人开发需要而整理的**舰队Collection**的 JSON 格式基础数据。请自由取用。
+因为个人需要而整理的**舰队Collection**的 JSON 格式基础数据。
 
 ## 说明 ##
 
@@ -8,7 +8,7 @@
 2. 实体之间有关联关系，但考虑到通用性，JSON数据是完全扁平化的。
 3. jpaentity文件夹下是加了JPA注解的Java类。如果使用Java，可以利用这些类，用JSON序列化库反序列化后，再配合支持JPA注解的ORM框架（例如Hibernate）持久化到数据库。
 4. 为了和JSON数据的格式一致，关联字段只声明了关联实体的主键属性，并没有写成嵌套实体类的形式。
-5. 暂时只整理了舰船的数据，根据个人开发需要，持续更新、勘误。
+5. ER图因为墙的原因暂时更新不了……
 
 ## 实体关联 ##
 
@@ -16,7 +16,7 @@
 
 ## 属性说明 ##
 
-如果没有特殊说明，均为整型
+如果没有特殊说明，均为整型数字
 
 #### Ship 舰船 ####
 
@@ -133,3 +133,87 @@
 **typeName（字符串）**
 
 	舰种名称
+
+#### Expedition 远征 ####
+
+----------
+
+**id**
+
+	编号，和游戏里的远征编号是一致的。
+
+**name**
+
+	日文名称
+
+**duration**
+
+	耗时（分钟）
+
+**fuelConsumption**
+
+	耗油百分比
+
+**ammoConsumption**
+
+	消耗弹药百分比
+
+**admiralExp**
+
+	提督经验值
+
+**shipExp**
+
+	舰娘获得经验
+
+**fuel / ammo / steel /bauxite**
+
+	奖励的油弹钢铝
+
+**bucket / flamer / dev**
+
+	奖励的高速修复材料（桶），高速建造材料，开发资财（最大值）
+
+**chestSm / chestMed / chestLg**
+
+	奖励的家具箱小/中/大
+
+#### ExpeditionRequirements 远征成功条件 ####
+
+----------
+
+**id**
+
+	和Expedition的id对应的远征编号
+
+**minimumNum**
+
+	最低数量
+
+**flagShipMinLevel**
+
+	旗舰最低等级，没有特殊要求的为1
+
+**fleetMinLevel**
+
+	舰队合计最低等级，没有特殊要求的为1
+
+**flagshipTypeID**
+
+	旗舰舰种，和ShipType的typeID对应，不做特殊要求的这个属性为NULL
+
+**shipType1 ~ shipType6（字符串）**
+
+	执行远征所必需派出的舰娘的种类。
+	因为对部分远征而言派出多种舰娘均可满足要求，所以这里存储的并不是单个舰种的ID，而有可能是逗号分开的多个舰种ID。
+	对于没有指定所有6只舰娘种类的远征，多余的属性是NULL。
+
+**otherRequirements（字符串）**
+
+	其他需要文字描述的成功条件
+
+**memo（字符串）**
+
+	备注，例如触发大成功条件等的备注
+
+	
